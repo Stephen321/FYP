@@ -1,41 +1,63 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="src\GameData.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameLoader.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameObject.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameOverScreen.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameScreen.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\MenuScreen.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Player.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\stdafx.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Constants.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\HealthBar.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\main.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
+    <ClInclude Include="include\GoapAction.h">
+      <Filter>include\GOAP</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GoapAgent.h">
+      <Filter>include\GOAP</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GoapPlanner.h">
+      <Filter>include\GOAP</Filter>
+    </ClInclude>
+    <ClInclude Include="include\IdleAction.h">
+      <Filter>include\GOAP</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FireCoverAction.h">
+      <Filter>include\GOAP</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ReloadAction.h">
+      <Filter>include\GOAP</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PickUpAmmoAction.h">
+      <Filter>include\GOAP</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MoveToNodeAction.h">
+      <Filter>include\GOAP</Filter>
+    </ClInclude>
+    <ClInclude Include="include\TakeCoverAction.h">
+      <Filter>include\GOAP</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FlankCoverAction.h">
+      <Filter>include\GOAP</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Ammo.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\AmmoPool.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Bullet.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\BulletPool.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Camera.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Collidable.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CollisionManager.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Constants.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Cover.h">
+      <Filter>include</Filter>
+    </ClInclude>
     <ClInclude Include="include\GameData.h">
       <Filter>include</Filter>
     </ClInclude>
@@ -45,22 +67,43 @@
     <ClInclude Include="include\GameObject.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="include\GameScreen.h">
+    <ClInclude Include="include\GameOverScene.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameScene.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Graph.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GraphArc.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GraphNode.h">
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="include\Helpers.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="include\GameOverScreen.h">
+    <ClInclude Include="include\HUD.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="include\MenuScreen.h">
+    <ClInclude Include="include\Map.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="include\Player.h">
+    <ClInclude Include="include\MenuScene.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="include\Screen.h">
+    <ClInclude Include="include\ObjectType.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Scene.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SceneManager.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SceneType.h">
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="include\stdafx.h">
@@ -69,10 +112,7 @@
     <ClInclude Include="include\targetver.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="include\Constants.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="include\HealthBar.h">
+    <ClInclude Include="include\Unit.h">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>
@@ -86,10 +126,84 @@
     <Filter Include="assets">
       <UniqueIdentifier>{bf707250-f302-4cf4-8ee7-2aa7d7dd5666}</UniqueIdentifier>
     </Filter>
+    <Filter Include="include\GOAP">
+      <UniqueIdentifier>{3f4d8522-f9d6-4eaa-8ea0-485f679d5a6d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\data.json">
       <Filter>assets</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Ammo.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\AmmoPool.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Bullet.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BulletPool.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Camera.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Collidable.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CollisionManager.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Constants.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameData.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameLoader.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameObject.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameOverScene.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameScene.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GoapAction.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graph.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphNode.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\HUD.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Map.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MenuScene.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SceneManager.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\stdafx.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Unit.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -1,15 +1,27 @@
 #pragma once
+
 #include <string>
 
 namespace Constants
 {
-	extern const int WORLD_SCREEN_SIZES;
-	extern const std::string ABDUCTOR_KEY;
-	extern const std::string MUTANT_KEY;
-	extern const std::string PROJECTILE_KEY;
-	extern const std::string MISC_KEY;
-	extern const std::string ASTRONAUT_KEY;
-	extern const std::string OBSTACLES_KEY;
-	extern const int METEOR_CHANCE;
-	extern const int HYPERJUMP_CHANCE;
+	extern const int UNIT_COL_FILTERS;
+	extern const int COVER_COL_FILTERS;
+	extern const int WALL_COL_FILTERS;
+	extern const int BULLET_COL_FILTERS;
+	extern const int AMMO_COL_FILTERS;
+
+	extern const float RESPAWN_TIME;
+	extern const int TILE_SIZE;
+
+	extern const std::string COVER_WEST;
+	extern const std::string COVER_NORTH;
+	extern const std::string COVER_EAST;
+	extern const std::string COVER_SOUTH;
+
+	extern const int TEAM_A;
+	extern const int TEAM_B;
+	extern const int ID_TEXT_Y_OFFSET;
+	extern const std::string DIFF_EASY;
+	extern const std::string DIFF_HARD;
+
 }

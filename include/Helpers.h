@@ -1,10 +1,13 @@
 #pragma once
 #include <vector>
 #include "SFML\Graphics.hpp"
+#include "ObjectType.h"
+
+#define _USE_MATH_DEFINES
+#include <math.h>
 
 namespace Helpers
 {
-	//clamps a value between min and max-1
 	inline int clamp(int value, int min, int max)
 	{
 		if (value < 0)
@@ -19,11 +22,47 @@ namespace Helpers
 		return value;
 	}
 
+	inline float getAngle(const sf::Vector2f& v)
+	{
+		return atan2(v.y, v.x) * (180.f / M_PI);
+	}
+
+	inline float getAngle(const sf::Vector2f& v1, const sf::Vector2f& v2)
+	{
+		sf::Vector2f v = v2 - v1; 
+		return atan2(v.y, v.x) * (180.f / M_PI);
+	}
+
 	inline float getLength(const sf::Vector2f & v)
 	{
 		float length = sqrt(v.x * v.x + v.y * v.y);
 		return length;
 	}
+
+	inline std::string objectTypeToString(ObjectType type)
+	{
+		std::string name;
+		switch (type)
+		{
+		case ObjectType::None:
+			name = "None";
+			break;
+		case ObjectType::Unit:
+			name = "Unit";
+			break;
+		case ObjectType::Wall:
+			name = "Wall";
+			break;
+		case ObjectType::Bullet:
+			name = "Bullet";
+			break;
+		case ObjectType::Ammo:
+			name = "Ammo";
+			break;
+		}
+		return name;
+	}
+
 
 	inline sf::Vector2f normaliseCopy(const sf::Vector2f & v)
 	{
@@ -35,6 +74,18 @@ namespace Helpers
 			n.y = v.y / length;
 		}
 		return n;
+	}
+
+	inline bool valueInRange(int value, int min, int max)
+	{
+		return (value >= min) && (value <= max);
+	}
+
+	inline float lerp(float start, float end, float t)
+	{
+		if (t > 1.f)
+			t = 1.f;
+		return start*(1 - t) + end*t;
 	}
 
 	inline void normalise(sf::Vector2f & v)
@@ -78,29 +129,5 @@ namespace Helpers
 				high = mid - 1;
 		}
 		return -1; //not found
-	}
-
-	inline sf::Vector2f getVectorBetweenWrap(const sf::Vector2f& worldSize, const sf::Vector2f& position, const sf::Vector2f& target)
-	{
-		sf::Vector2f vectorBetween = target - position;
-		float distanceToTarget = Helpers::getLength(vectorBetween);
-
-		float leftrWrapDistanceToTarget = position.x + (worldSize.x - target.x);
-		float rightWrapDistanceToTarget = target.x + (worldSize.x - position.x);
-
-		if (leftrWrapDistanceToTarget < distanceToTarget)
-		{//better to wrap aroud to reach target offscreen left
-			vectorBetween = sf::Vector2f(position.x - leftrWrapDistanceToTarget, target.y) - position;
-			return  vectorBetween;
-		}
-		else if (rightWrapDistanceToTarget < distanceToTarget)
-		{
-			vectorBetween = sf::Vector2f(position.x + rightWrapDistanceToTarget, target.y) - position;
-			return  vectorBetween;
-		}
-		else
-		{
-			return vectorBetween;
-		}
 	}
 }

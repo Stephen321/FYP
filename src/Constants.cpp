@@ -1,14 +1,28 @@
 #include "Constants.h"
 
+#include "ObjectType.h"
+
 namespace Constants
 {
-	const int WORLD_SCREEN_SIZES = 9;
-	const std::string ABDUCTOR_KEY = "abductors";
-	const std::string MUTANT_KEY = "mutants";
-	const std::string PROJECTILE_KEY = "projectiles";
-	const std::string MISC_KEY = "misc";
-	const std::string ASTRONAUT_KEY = "astronaut";
-	const std::string OBSTACLES_KEY = "obstacles";
-	const int METEOR_CHANCE = 400;
-	const int HYPERJUMP_CHANCE = 997;
+	const int UNIT_COL_FILTERS = (int)ObjectType::Wall | (int)ObjectType::Bullet | (int)ObjectType::Ammo;
+	const int COVER_COL_FILTERS = (int)ObjectType::Unit | (int)ObjectType::Bullet;
+	const int WALL_COL_FILTERS = (int)ObjectType::Unit | (int)ObjectType::Bullet;
+	const int BULLET_COL_FILTERS = (int)ObjectType::Unit | (int)ObjectType::Wall;
+	const int AMMO_COL_FILTERS = (int)ObjectType::Unit;
+	
+	const float RESPAWN_TIME = 2.f;
+	const int TILE_SIZE = 64;
+
+
+	const std::string COVER_WEST = "West";
+	const std::string COVER_NORTH = "North";
+	const std::string COVER_EAST = "East";
+	const std::string COVER_SOUTH = "South";
+
+	const int TEAM_A = 0;
+	const int TEAM_B = 1;
+
+	const int ID_TEXT_Y_OFFSET = 42;
+	const std::string DIFF_EASY = "EASY";
+	const std::string DIFF_HARD = "HARD";
 }

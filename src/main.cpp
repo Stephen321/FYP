@@ -18,11 +18,11 @@
 #pragma comment(lib,"opengl32.lib") 
 #pragma comment(lib,"glu32.lib") 
 
-#include <iostream> 
+ 
 #include <vector>
-#include "MenuScreen.h"
-#include "GameScreen.h"
-#include "GameOverScreen.h"
+#include "SFML\Graphics.hpp"
+#include "SceneManager.h"
+#include "GameLoader.h"
 
 ////////////////////////////////////////////////////////////
 ///Entrypoint of application 
@@ -30,19 +30,20 @@
 int main()
 {
 	srand((unsigned int)time(NULL));
-	sf::RenderWindow window(sf::VideoMode(1280u, 720u, 32), "FYP");
-	std::vector<Screen*> Screens;
-	int screen = 0;
-	MenuScreen menuScreen;
-	Screens.push_back(&menuScreen);
-	GameScreen gameScreen;
-	Screens.push_back(&gameScreen);
-	GameOverScreen gameOverScreen;
-	Screens.push_back(&gameOverScreen);
-
-	while (screen >= 0)
+	sf::RenderWindow window(sf::VideoMode(1366u, 768u, 32), "FYP");
+	//	window.setKeyRepeatEnabled(false);
+	sf::Clock clock;
+	GameLoader loader("assets/"); //loader has to be done before sceneManager creation as sceneManager requires stuff to be 
+	//created already (graph for the collision manager to attach to)
+	SceneManager& sceneManager = SceneManager::Instance();
+	sceneManager.init(&window);
+	sceneManager.push(SceneType::Menu);
+	while (sceneManager.getRunning())
 	{
-		screen = Screens[screen]->run(window);
+		sceneManager.pollEvents();
+		sceneManager.update(clock.restart().asSeconds());
+		sceneManager.render();
 	}
+	
 	return EXIT_SUCCESS;
 }

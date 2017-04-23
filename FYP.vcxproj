@@ -170,72 +170,72 @@ xcopy /Y "$(ProjectDir)dependencies\sfml\bin\*.dll" "$(TargetDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="include\Ammo.h" />
+    <ClInclude Include="include\AmmoPool.h" />
+    <ClInclude Include="include\Bullet.h" />
+    <ClInclude Include="include\BulletPool.h" />
+    <ClInclude Include="include\Camera.h" />
+    <ClInclude Include="include\Collidable.h" />
+    <ClInclude Include="include\CollisionManager.h" />
     <ClInclude Include="include\Constants.h" />
+    <ClInclude Include="include\Cover.h" />
+    <ClInclude Include="include\FireCoverAction.h" />
+    <ClInclude Include="include\FlankCoverAction.h" />
     <ClInclude Include="include\GameData.h" />
     <ClInclude Include="include\GameLoader.h" />
     <ClInclude Include="include\GameObject.h" />
-    <ClInclude Include="include\GameOverScreen.h" />
-    <ClInclude Include="include\GameScreen.h" />
-    <ClInclude Include="include\HealthBar.h" />
+    <ClInclude Include="include\GameOverScene.h" />
+    <ClInclude Include="include\GameScene.h" />
+    <ClInclude Include="include\Graph.h" />
+    <ClInclude Include="include\GraphArc.h" />
+    <ClInclude Include="include\GraphNode.h" />
     <ClInclude Include="include\Helpers.h" />
-    <ClInclude Include="include\MenuScreen.h" />
-    <ClInclude Include="include\Player.h" />
-    <ClInclude Include="include\Screen.h" />
+    <ClInclude Include="include\HUD.h" />
+    <ClInclude Include="include\Map.h" />
+    <ClInclude Include="include\MenuScene.h" />
+    <ClInclude Include="include\ObjectType.h" />
+    <ClInclude Include="include\Scene.h" />
+    <ClInclude Include="include\SceneManager.h" />
+    <ClInclude Include="include\SceneType.h" />
     <ClInclude Include="include\stdafx.h" />
+    <ClInclude Include="include\TakeCoverAction.h" />
+    <ClInclude Include="include\GoapAction.h" />
+    <ClInclude Include="include\GoapAgent.h" />
+    <ClInclude Include="include\GoapPlanner.h" />
+    <ClInclude Include="include\IdleAction.h" />
+    <ClInclude Include="include\MoveToNodeAction.h" />
+    <ClInclude Include="include\PickUpAmmoAction.h" />
+    <ClInclude Include="include\ReloadAction.h" />
     <ClInclude Include="include\targetver.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="src\HealthBar.cpp" />
-    <ClCompile Include="src\Constants.cpp" />
-    <ClCompile Include="src\main.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Use</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="src\GameData.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="src\GameLoader.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="src\GameObject.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="src\GameOverScreen.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="src\GameScreen.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="src\MenuScreen.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="src\Player.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="src\stdafx.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-    </ClCompile>
+    <ClInclude Include="include\Unit.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\data.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Ammo.cpp" />
+    <ClCompile Include="src\AmmoPool.cpp" />
+    <ClCompile Include="src\Bullet.cpp" />
+    <ClCompile Include="src\BulletPool.cpp" />
+    <ClCompile Include="src\Camera.cpp" />
+    <ClCompile Include="src\Collidable.cpp" />
+    <ClCompile Include="src\CollisionManager.cpp" />
+    <ClCompile Include="src\Constants.cpp" />
+    <ClCompile Include="src\GameData.cpp" />
+    <ClCompile Include="src\GameLoader.cpp" />
+    <ClCompile Include="src\GameObject.cpp" />
+    <ClCompile Include="src\GameOverScene.cpp" />
+    <ClCompile Include="src\GameScene.cpp" />
+    <ClCompile Include="src\GoapAction.cpp" />
+    <ClCompile Include="src\Graph.cpp" />
+    <ClCompile Include="src\GraphNode.cpp" />
+    <ClCompile Include="src\HUD.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Map.cpp" />
+    <ClCompile Include="src\MenuScene.cpp" />
+    <ClCompile Include="src\SceneManager.cpp" />
+    <ClCompile Include="src\stdafx.cpp" />
+    <ClCompile Include="src\Unit.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

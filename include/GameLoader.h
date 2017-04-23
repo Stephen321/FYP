@@ -1,23 +1,21 @@
-#ifndef GAMELOADER_H
-#define GAMELOADER_H
+#pragma once
 
-#include "rapidjson\document.h"
-#include <memory>
-#include <fstream>
 #include "SFML/Graphics.hpp" 
-#include "GameData.h"
 //#include <dirent.h>
+#include "rapidjson\document.h"
 
 using namespace rapidjson;
 
 class GameLoader {
 public:
-	GameLoader(const std::string& filePath);
+	GameLoader(const std::string& filepath);
 private:
-	rapidjson::Document m_document;
-	std::string m_JSONData;
-	void loadData(const std::string& filePath);
-	void loadJSONDATA(std::string const & filename);
-};
+	void loadData(const std::string& filename);
+	std::string loadJSONDATA(std::string const & filepath);
+	void loadMap(std::string const & mapPath, std::string const & mapFile);
+	void loadTiles(const Value& tilesetObj, const Value& layer, std::string const & mapPath);
+	void loadGraph(const Value& layer);
 
-#endif 
+	int m_width;
+	int m_height;
+};

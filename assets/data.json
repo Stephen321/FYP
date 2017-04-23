@@ -1,0 +1,50 @@
+{
+	"map_path": "map/",
+	"map_file": "map.json",
+	"camera_move_speed": 500,
+	"unit_texture": "sprites/units/unit.png",
+	"unit_texture2": "sprites/units/unit2.png",
+	"portraitA_texture": "sprites/interface/portraitA.png",
+	"portraitB_texture": "sprites/interface/portraitB.png",
+	"dead_texture": "sprites/interface/dead.png",
+	"bullets_texture": "sprites/interface/bullets.png",
+	"cover_texture": "sprites/interface/cover.png",
+	"menu_texture": "sprites/interface/menu.png",
+	"gameOver_texture": "sprites/interface/gameOver.png",
+	"font": "fonts/DJB Number 2 Pencil Bold.ttf",
+	"unit_move_speed": 200,
+	"bullet_pool_size": 100,
+	"bullet_texture": "sprites/bullet.png",
+	"ammo_pool_size": 15,
+	"ammo_texture": "sprites/ammo.png",
+	"weapons": {
+		"pistol": {
+			"damage": 10,
+			"bullet_move_speed": 300,
+			"range": 400,
+			"reload_time": 0.5,
+			"ammo": 15
+		},
+		"shotgun": {
+			"damage": 10,
+			"bullet_move_speed": 300,
+			"range": 1500,
+			"reload_time": 0.5,
+			"ammo": 100
+		},
+		"rifle": {
+			"damage": 10,
+			"bullet_move_speed": 300,
+			"range": 1500,
+			"reload_time": 0.5,
+			"ammo": 100
+		},
+		"sniper": {
+			"damage": 10,
+			"bullet_move_speed": 300,
+			"range": 1500,
+			"reload_time": 0.5,
+			"ammo": 100
+		}
+	}
+}
