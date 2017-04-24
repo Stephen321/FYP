@@ -21,7 +21,7 @@ void Bullet::fire(const sf::Vector2f& start, const sf::Vector2f & target, float 
 	normalise(m_direction);
 	m_moveSpeed = moveSpeed;
 	m_damage = damage;
-	m_range = range;
+	m_range = range * 4;
 	m_travelledDistance = 0.f;
 	m_sprite.setPosition(m_position);
 	m_sprite.setRotation(getAngle(m_direction));

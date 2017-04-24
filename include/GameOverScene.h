@@ -14,4 +14,7 @@ public:
 private:
 	sf::Text m_outputText;
 	sf::Sprite m_background;
+
+	
+	const int TEST_AMOUNT = 100;
 };

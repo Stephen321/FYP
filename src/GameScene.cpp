@@ -2,7 +2,6 @@
 #include "SceneManager.h"
 #include "GameData.h"
 #include "Constants.h"
-
 using namespace Constants;
 
 GameScene::GameScene(sf::RenderWindow * window)
@@ -30,9 +29,12 @@ void GameScene::start()
 	GameData& data = GameData::Instance();
 
 	m_gameTimer = 0.f;
-
 	data.teamADeaths = 0;
 	data.teamBDeaths = 0;
+	data.teamAShots = 0;
+	data.teamBShots = 0;
+	data.teamBNodes = 0;
+	data.teamBNodes = 0;
 
 	m_camera.init(m_window->getSize().x, m_window->getSize().y, data.cameraMoveSpeed);
 	m_bulletPool = BulletPool(data.bulletPoolSize, data.bulletTexture);
@@ -103,6 +105,16 @@ void GameScene::pollEvents(sf::Event evt)
 	{
 		data.debug = !data.debug;
 	}
+	if (evt.type == sf::Event::KeyPressed && evt.key.code == sf::Keyboard::Dash)
+	{
+		data.timeMultiplier -= 0.25f;
+		if (data.timeMultiplier <= 1.f)
+			data.timeMultiplier = 1.f;
+	}
+	if (evt.type == sf::Event::KeyPressed && evt.key.code == sf::Keyboard::Equal)
+	{
+		data.timeMultiplier += 0.25f;
+	}
 	m_camera.pollEvents(evt);
 }
 
@@ -122,6 +134,7 @@ void GameScene::update(float dt)
 	m_gameTimer += dt;
 
 	GameData& data = GameData::Instance();
+	data.gameTime = m_gameTimer;
 	if (data.useTimeToEnd)
 	{
 		if (m_gameTimer > GAME_TIME_TARGET)
@@ -130,12 +143,12 @@ void GameScene::update(float dt)
 	}
 	else
 	{
-		if (data.teamADeaths > DEATH_TARGET)
+		if (data.teamADeaths >= DEATH_TARGET)
 		{
 			data.gameTime = m_gameTimer;
 			SceneManager::Instance().pop(SceneType::GameOver);
 		}
-		else if (data.teamBDeaths > DEATH_TARGET)
+		else if (data.teamBDeaths >= DEATH_TARGET)
 		{
 			data.gameTime = m_gameTimer;
 			SceneManager::Instance().pop(SceneType::GameOver);

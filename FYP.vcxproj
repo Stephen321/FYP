@@ -211,6 +211,7 @@ xcopy /Y "$(ProjectDir)dependencies\sfml\bin\*.dll" "$(TargetDir)"</Command>
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\data.json" />
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Ammo.cpp" />

@@ -25,5 +25,5 @@ private:
 	const int BULLET_OFFSET = 6;
 	std::vector<Unit>& m_units;
 	std::vector<Portrait> m_portraits;
-	
+	sf::Text m_gameTimeText;
 };

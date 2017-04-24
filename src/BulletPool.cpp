@@ -9,7 +9,7 @@ BulletPool::BulletPool(int size, const sf::Texture& texture)
 	m_bullets = std::vector<Bullet>(m_size, Bullet(texture));
 }
 
-void BulletPool::fire(const sf::Vector2f & start, const sf::Vector2f & target, Bullet::Type type, bool fromCover)
+bool BulletPool::fire(const sf::Vector2f & start, const sf::Vector2f & target, Bullet::Type type, bool fromCover)
 {
 	GameData& data = GameData::Instance();
 	int damage = 0;
@@ -43,20 +43,16 @@ void BulletPool::fire(const sf::Vector2f & start, const sf::Vector2f & target, B
 	if (fromCover)
 		range *= 2;
 
-	bool foundOne = false;
 	for (int i = 0; i < m_size; i++)
 	{
 		if (m_bullets[i].getActive() == false)
 		{//found unused bullet
 			m_bullets[i].fire(start, target, moveSpeed, damage, range);
-			foundOne = true;
-			break;
+			return true;
 		}
 	}
-	if (foundOne == false)
-	{
-		//Couldnt find a free bullet
-	}
+	return false;
+	//Couldnt find a free bullet
 }
 
 void BulletPool::update(float dt)

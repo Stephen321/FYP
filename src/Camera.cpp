@@ -1,5 +1,7 @@
 #include "Camera.h"
 
+#include "GameData.h"
+
 Camera::Camera()
 	: m_zoom(1.f)
 	, m_zooming(false)
@@ -21,6 +23,7 @@ sf::View Camera::getView() const
 
 void Camera::update(float dt)
 {
+	dt /= GameData::Instance().timeMultiplier;
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
 	{
 		m_view.move(0.f, -m_moveSpeed * dt);

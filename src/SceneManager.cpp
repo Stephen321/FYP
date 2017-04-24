@@ -3,6 +3,7 @@
 #include "MenuScene.h"
 #include "GameScene.h"
 #include "GameOverScene.h"
+#include "GameData.h"
 
 SceneManager::SceneManager()
 	: m_running(true)
@@ -52,7 +53,10 @@ void SceneManager::update(float dt)
 		return;
 
 	if (dt < 0.2f)
-		m_runningScenes.back()->update(dt);
+	{
+		GameData& data = GameData::Instance();
+		m_runningScenes.back()->update(dt * data.timeMultiplier);
+	}
 }
 
 void SceneManager::render() const

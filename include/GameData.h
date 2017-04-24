@@ -57,11 +57,30 @@ public:
 
 	int teamADeaths;
 	int teamBDeaths;
+	int teamANodes;
+	int teamBNodes;
+	int teamAShots;
+	int teamBShots;
 	float gameTime;
 	std::string aDiff;
 	std::string bDiff;
 	bool useTimeToEnd;
 	bool debug;
+	bool testing;
+	bool firstTest;
+	int testCount;
+
+	struct SumTest {
+		float gameTime;
+		int deaths;
+		int kills;
+		int shots;
+		int nodes;
+	};
+	SumTest sumsA;
+	SumTest sumsB;
+
+	float timeMultiplier;
 private:
 	GameData();
 };

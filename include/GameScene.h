@@ -27,7 +27,6 @@ private:
 	CollisionManager m_collisionManager;
 	HUD m_hud;
 	float m_gameTimer;
-	//TODO: change this?
-	const int DEATH_TARGET = 100;
-	const int GAME_TIME_TARGET = 60;
+	const int DEATH_TARGET = 25; // deaths to end game
+	const int GAME_TIME_TARGET = 600; //10 minutes 
 };

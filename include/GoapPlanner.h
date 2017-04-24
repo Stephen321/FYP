@@ -51,7 +51,14 @@ public:
 		bool success = buildTree(start, leaves, usableActions, goal);
 
 		if (success == false)
+		{
+			for (int i = 0; i < leaves.size(); i++)
+			{
+				delete leaves[i];
+				leaves[i] = nullptr;
+			}
 			return std::vector<GoapAction*>();
+		}
 
 		Node* cheapest = nullptr;
 		for (Node* leaf : leaves)

@@ -88,8 +88,9 @@ private:
 	float m_inCoverTimer;
 	const int FLANK_DELAY = 5;
 
-	static const int HEALTH_RECOVER_TIME = 1;
+	static const int HEALTH_RECOVER_TIME = 3;
 	static const int HEALTH_RECOVER_AMOUNT = 2;
+	static const int CHOOSE_COVER = 3;
 
 	bool m_inCover;
 	std::pair<int, std::string> m_coverIndexSlot;

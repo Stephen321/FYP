@@ -131,10 +131,6 @@ void Unit::respawn(float dt)
 void Unit::reset()
 {
 	GameData& data = GameData::Instance();
-	if (m_team == TEAM_A)
-		data.teamADeaths++;
-	else
-		data.teamBDeaths++;
 	m_position = m_spawnPos;
 	m_active = true;
 	m_reloadTimer = 0.f;
@@ -520,7 +516,13 @@ void Unit::fireAtTarget(bool fromCover)
 		sf::Vector2f offset = m_fireTarget - m_position;
 		normalise(offset);
 		offset *= m_rect.width * 1.5f;
-		m_bulletPool->fire(m_position + offset, m_fireTarget, Bullet::Type::Pistol, fromCover);
+		if (m_bulletPool->fire(m_position + offset, m_fireTarget, Bullet::Type::Pistol, fromCover))
+		{
+			if (m_team == TEAM_A)
+				GameData::Instance().teamAShots++;
+			else
+				GameData::Instance().teamBShots++;
+		}
 	}
 }
 
@@ -634,6 +636,11 @@ void Unit::updatePath()
 		if (arrivedAtTarget())
 		{
 			m_path.pop_back();
+
+			if (m_team == TEAM_A)
+				GameData::Instance().teamANodes++;
+			else
+				GameData::Instance().teamBNodes++;
 			m_startPos = m_position;
 			m_timer = 0.f;
 			if (m_path.empty() == false)
@@ -648,7 +655,14 @@ void Unit::updatePath()
 	}
 	else if (m_useHard == false)
 	{
-		moveTo(m_graph->getRandomIndex());
+		if (rand() % CHOOSE_COVER == 0)
+		{
+			moveToCover();
+		}
+		else
+		{
+			moveTo(m_graph->getRandomIndex());
+		}
 	}
 }
 

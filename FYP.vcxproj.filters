@@ -134,6 +134,7 @@
     <None Include="assets\data.json">
       <Filter>assets</Filter>
     </None>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Ammo.cpp">

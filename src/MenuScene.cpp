@@ -13,6 +13,9 @@ void MenuScene::start()
 
 	m_outputText.setFillColor(sf::Color::White);
 	m_outputText.setPosition(400, 250);
+	m_outputText.setFont(data.font);
+	m_background.setTexture(data.menuTexture);
+
 	std::string option1 = DIFF_EASY + " vs " + DIFF_EASY;
 	std::string option2 = DIFF_EASY + " vs " + DIFF_HARD;
 	std::string option3 = DIFF_HARD + " vs " + DIFF_HARD;
@@ -21,9 +24,18 @@ void MenuScene::start()
 	str.append("Press 2 to start with " + option2 + "\n\n");
 	str.append("Press 3 to start with " + option3 + "\n\n");
 	m_outputText.setString(str);
-	m_outputText.setFont(data.font);
 
-	m_background.setTexture(data.menuTexture);
+	if (data.testing)
+	{
+		data.timeMultiplier = 2.f;
+		if (data.firstTest)
+		{
+			data.useTimeToEnd = true;
+			data.aDiff = DIFF_EASY;
+			data.bDiff = DIFF_EASY;
+		}
+		SceneManager::Instance().pop(SceneType::Game);
+	}
 }
 
 void MenuScene::end()

@@ -1,6 +1,9 @@
 #include "HUD.h"
 
 #include "Constants.h"
+#include "GameData.h"
+#include <iomanip> 
+#include <sstream> 
 
 using namespace Constants;
 
@@ -81,6 +84,13 @@ void HUD::init(int windowWidth, const sf::Texture & portraitATexture, const sf::
 		m_portraits.push_back(portrait);
 		xPos += portrait.sprite.getGlobalBounds().width + offset;;
 	}
+
+
+	m_gameTimeText.setFont(font);
+	m_gameTimeText.setPosition(windowWidth * 0.35f, 10.f);
+	m_gameTimeText.setCharacterSize(healthCharSize * 2.8);
+	m_gameTimeText.setStyle(sf::Text::Bold);
+	m_gameTimeText.setFillColor(sf::Color::White);
 }
 
 void HUD::update(float dt)
@@ -101,6 +111,10 @@ void HUD::update(float dt)
 
 		m_portraits[i].bullets.setTextureRect(sf::IntRect(0, 0, ammo * BULLET_OFFSET, m_portraits[i].bullets.getGlobalBounds().height));
 	}
+	std::stringstream stream;
+	stream << "\tTime: " << std::setprecision(4) << GameData::Instance().gameTime << "\n"
+		<< "Time multiplier: " << std::setprecision(4) << GameData::Instance().timeMultiplier;
+	m_gameTimeText.setString(stream.str());
 }
 
 void HUD::draw(sf::RenderTarget & target, sf::RenderStates states) const
@@ -119,4 +133,5 @@ void HUD::draw(sf::RenderTarget & target, sf::RenderStates states) const
 		if (active && m_units[m_portraits[i].unitIndex].getInCover())
 			target.draw(m_portraits[i].cover); 
 	}
+	target.draw(m_gameTimeText);
 }

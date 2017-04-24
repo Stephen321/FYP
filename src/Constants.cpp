@@ -23,6 +23,6 @@ namespace Constants
 	const int TEAM_B = 1;
 
 	const int ID_TEXT_Y_OFFSET = 42;
-	const std::string DIFF_EASY = "EASY";
-	const std::string DIFF_HARD = "HARD";
+	const std::string DIFF_EASY = "Random";
+	const std::string DIFF_HARD = "GOAP";
 }
