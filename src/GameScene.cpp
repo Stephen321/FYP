@@ -97,7 +97,7 @@ void GameScene::end()
 void GameScene::pollEvents(sf::Event evt)
 {
 	GameData& data = GameData::Instance();
-	if (data.debug && evt.type == sf::Event::KeyReleased && evt.key.code == sf::Keyboard::Space)
+	if (evt.type == sf::Event::KeyReleased && evt.key.code == sf::Keyboard::Space)
 	{
 		SceneManager::Instance().pop(SceneType::GameOver);
 	}
