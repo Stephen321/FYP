@@ -9,3 +9,5 @@
 [Poster](https://drive.google.com/open?id=143PQxRsJ3Bt6eWD6ssOiwwRLmc0WWFMwJrd0rdcPpDE)
 
 [Trello](https://trello.com/b/qGzbYtwf/fyp)
+
+[Video](https://youtu.be/bPaLwsQORms?list=PLn9-l8kkg87PzWmn7uGRBlUTwavOcUfOw)
